@@ -1,0 +1,8 @@
+SET GLOBAL SQL_MODE = CONCAT(@@SQL_MODE, ',ONLY_FULL_GROUP_BY');
+
+SELECT DISTINCT j.JNAME
+FROM J j
+WHERE j.ID_J IN (SELECT li.ID_J
+                 FROM SPJ li
+                 GROUP BY li.ID_J
+                 HAVING SUM(li.QTY) > 1000);
