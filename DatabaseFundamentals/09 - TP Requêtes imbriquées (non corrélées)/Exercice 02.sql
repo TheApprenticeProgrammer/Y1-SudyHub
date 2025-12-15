@@ -1,0 +1,7 @@
+SET GLOBAL SQL_MODE = CONCAT(@@SQL_MODE, ',ONLY_FULL_GROUP_BY'); 
+
+SELECT DISTINCT p.PNAME
+FROM P p
+WHERE p.ID_P IN (SELECT li.ID_P
+                 FROM SPJ li
+                 WHERE li.ID_S = 'S2');
