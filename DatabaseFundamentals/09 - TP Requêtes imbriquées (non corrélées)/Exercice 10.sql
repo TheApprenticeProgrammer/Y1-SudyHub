@@ -1,6 +1,6 @@
 SET GLOBAL SQL_MODE = CONCAT(@@SQL_MODE, ',ONLY_FULL_GROUP_BY');
 
--- Avec IN
+-- Avec NOT IN
 
 SELECT COUNT(*) AS Nombre_De_Livraisons
 FROM SPJ li
