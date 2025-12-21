@@ -1,0 +1,17 @@
+SET GLOBAL SQL_MODE = CONCAT(@@SQL_MODE, ',ONLY_FULL_GROUP_BY');
+
+-- Avec ALL
+
+SELECT DISTINCT p.PNAME
+FROM P p
+WHERE p.WEIGHT >= ALL (SELECT p.WEIGHT
+                       FROM P p);
+
+
+-- Avec MAX()
+
+SELECT DISTINCT p.PNAME
+FROM P p
+WHERE p.WEIGHT = (SELECT MAX(p.WEIGHT)
+                  FROM P p);
+
