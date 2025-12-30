@@ -1,0 +1,4 @@
+SELECT s.SNAME
+FROM S s
+WHERE s.STATUS < 25
+  AND s.CITY = 'Paris';
