@@ -1,0 +1,3 @@
+SELECT DISTINCT s.SNAME
+FROM SPJ li JOIN S s ON li.ID_S = s.ID_S
+WHERE li.ID_P = 'P4';
