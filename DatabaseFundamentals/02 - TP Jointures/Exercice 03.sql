@@ -1,0 +1,3 @@
+SELECT DISTINCT j.JNAME
+FROM SPJ li JOIN J j ON li.ID_J = j.ID_J
+WHERE li.ID_P = 'P3';
