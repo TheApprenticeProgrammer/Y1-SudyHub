@@ -1,0 +1,3 @@
+SELECT DISTINCT ea2.SSN2
+FROM EstAmi ea1 JOIN EstAmi ea2 ON ea1.SNN2 = ea2.SNN1
+WHERE ea1.SSN1 = 'P1';
