@@ -1,0 +1,5 @@
+SET GLOBAL SQL_MODE = CONCAT(@@SQL_MODE, ',ONLY_FULL_GROUP_BY'); 
+
+SELECT AVG(p.Age)
+FROM Personne p
+WHERE p.Sexe = 'F';
