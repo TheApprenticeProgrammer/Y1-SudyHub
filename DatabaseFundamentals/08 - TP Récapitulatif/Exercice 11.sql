@@ -1,0 +1,6 @@
+SET GLOBAL SQL_MODE = CONCAT(@@SQL_MODE, ',ONLY_FULL_GROUP_BY'); 
+
+SELECT d.ID_Message
+FROM Destinataires d
+GROUP BY d.ID_Message
+HAVING COUNT(*) >= 2;
