@@ -1,0 +1,6 @@
+SET GLOBAL SQL_MODE = CONCAT(@@SQL_MODE, ',ONLY_FULL_GROUP_BY'); 
+
+SELECT COUNT(*)
+FROM Destinataires d
+GROUP BY d.ID_Message
+HAVING d.ID_Message = 'M2';
