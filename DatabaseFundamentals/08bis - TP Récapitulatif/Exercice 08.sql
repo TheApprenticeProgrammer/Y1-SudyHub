@@ -1,0 +1,7 @@
+SET GLOBAL SQL_MODE = CONCAT(@@SQL_MODE, ',ONLY_FULL_GROUP_BY'); 
+
+SELECT DISTINCT s.SNAME
+FROM SPJ li JOIN S s ON li.ID_S = s.ID_S
+            JOIN P p ON li.ID_P = p.ID_P
+WHERE (s.CITY = 'Paris' OR p.CITY = 'Paris')
+  AND p.COLOR = 'Red';
