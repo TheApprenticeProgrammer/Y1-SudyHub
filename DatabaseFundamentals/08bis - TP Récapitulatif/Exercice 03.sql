@@ -1,0 +1,6 @@
+SET GLOBAL SQL_MODE = CONCAT(@@SQL_MODE, ',ONLY_FULL_GROUP_BY'); 
+
+SELECT DISTINCT li.ID_P
+FROM SPJ li JOIN S s ON li.ID_S = s.ID_S
+            JOIN J j ON li.ID_J = j.ID_J
+WHERE s.CITY = 'London' AND j.CITY = 'London';
