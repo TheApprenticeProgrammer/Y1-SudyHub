@@ -1,0 +1,4 @@
+SELECT li.ID_S
+FROM SPJ li
+GROUP BY li.ID_S
+HAVING COUNT(*) >= 4;
