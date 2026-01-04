@@ -1,0 +1,6 @@
+SET GLOBAL SQL_MODE = CONCAT(@@SQL_MODE, ',ONLY_FULL_GROUP_BY');
+
+SELECT h.Nom, AVG(m.Note)
+FROM Mange m JOIN Hamburger h ON m.ID_H = h.ID
+GROUP BY m.ID_H, h.Nom
+HAVING COUNT(DISTINCT m.ID_P) >= 3;
