@@ -59,6 +59,15 @@ Une distribution statistique :
   On parle de distribution statistique lorque l'on représente les différentes modalités de la série statistique en
   abscisse et leur effectif en ordonnée.
 
+La fréquence :
+  Notée $f_{i}$ d'une modalité, est le rapport entre de son effectif à l'effectif total (N).
+
+L'effectif cumulé :
+  L'effectif cumulé d'une modalité i, noté $N_{i}$ est le nombre de valeurs inférieures ou égales à cette modalité.
+
+La fréquence cumulée :
+  La fréquence cumulée d'une modalité i, notée $F_{i}$ est la somme des fréquences des modalités inférieures ou égales à cette modalité.
+  
 
 
 
