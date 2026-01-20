@@ -5,7 +5,7 @@ public class Main {
 
     public static int nombrePlateaux(SeqInt s) {
 
-        SeqIntIterator it = s1.iterator();
+        SeqIntIterator it = s.iterator();
 
         int nbPlat = 0;
 
