@@ -3,7 +3,7 @@ import seqint.SeqIntIterator;
 
 public class Main {
 
-    public static int nombrePlateaux(SeqInt s1) {
+    public static int nombrePlateaux(SeqInt s) {
 
         SeqIntIterator it = s1.iterator();
 
