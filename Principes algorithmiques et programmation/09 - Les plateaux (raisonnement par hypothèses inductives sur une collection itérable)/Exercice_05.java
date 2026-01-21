@@ -11,7 +11,7 @@ res = nombre de plateaux de longueur supérieure ou égale à 3
 
 prec              5 2 1 1 1 2 2 7 7 7 7 1   =>  prec = e
 e               5 2 1 1 1 2 2 7 7 7 7 1 1   =>  if (it.hasNext()) e = it.next()
-lgPlat          1 1 1 2 3 1 2 1 2 3 4 1 2   => if (e != prec) lgPlat = 0 else ++lgPlat
+lgPlat          1 1 1 2 3 1 2 1 2 3 4 1 2   => if (e != prec) lgPlat = 1 else ++lgPlat
 res             0 0 0 0 1 1 1 1 1 2 2 2 2   => if (lgPlat == 3) ++res
 
 Pré-initialisation :
