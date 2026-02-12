@@ -7,22 +7,22 @@ import seqint.SeqIntIterator;
 
 public class Main {
 
-    public static int longSeq(SeqInt s) {
+    public static int longueurSeq(SeqInt s) {
         SeqIntIterator it = s.iterator();
-        int lg = 0;
+        int longueur = 0;
         while (it.hasNext()) {
             it.next();
-            ++lg;
+            ++longueur;
         }
-        return lg;
+        return longueur;
     }
 
     public static void main(String[] args) {
         SeqInt s1 = new SeqInt();
-        System.out.println("0 = " + longSeq(s1));
         SeqInt s2 = new SeqInt(1);
-        System.out.println("1 = " + longSeq(s2));
         SeqInt s3 = new SeqInt(1, 2, 3, 4, 5);
-        System.out.println("5 = " + longSeq(s3));
+        System.out.println("0 = " + longueurSeq(s1));
+        System.out.println("1 = " + longueurSeq(s2));
+        System.out.println("5 = " + longueurSeq(s3));
     }
 }
