@@ -17,10 +17,11 @@ Pré-Initialisation :
 
 Initialisation :
     if (it.hasNext())
-        int nbPlat = 1     => il y a au moins un plateau
-    while (it.hasNext())
-        int prec = e
-        e = it.next() ...
+        int e = it.next()
+        nbPlat = 1     => il y a au moins un plateau
+        while (it.hasNext())
+            int prec = e
+            e = it.next() ...
 */
 
 public class Main {
