@@ -2,26 +2,31 @@ import seqint.SeqInt;
 import seqint.SeqIntIterator;
 
 /*
-Écrire une fonction qui calcule le nombre de nombres
-de blocs de même parité d’une séquence.
+Écrire une fonction qui calcule le nombre de nombre de blocs de même parité d’une séquence.
 
-prec  = élément précédent
 e = élément courant
+prec = élément précédent
 nbBlocs = nombre de blocs de même parité
 
-prec          5 5 1 1 1 2 2 4 8 2 2 1 2     =>  prec = e
----------------------------------------
-e           5 5 1 1 1 2 2 4 8 2 2 1 2 2     => e = it.next();
----------------------------------------
-nbBlocs     1 1 1 1 1 2 2 2 2 2 2 3 4 4     => if (e % 2 != prec % 2) ++nbBlocs
+prec              1 1 5 4 4 4 3 3 2 1 1 8   =>  prec = e
+e               1 1 5 4 4 4 3 3 2 1 1 8 8   =>  e = it.next()
+nbBlocs         1 1 1 2 2 2 3 3 4 5 5 6 6   =>  if (e % 2 != pre % 2) ++nbBlocs
 
-Pré-initialisation :
-    int nbBlocs  = 0
- */
+Pré-Initialisation :
+    int nbBlocs = 0     => si la séquence est vide renvoi zéro
+
+Initialisation :
+    if (it.hasNext())
+        int e = it.next()
+        nbBlocs = 1     => il y a au moins un bloc
+        while (it.hasNext())
+            int prec = e
+            e = it.next() ...
+*/
 
 public class Main {
 
-    public static int nombreBlocs(SeqInt s) {
+    public static int nbBlocs(SeqInt s) {
         SeqIntIterator it = s.iterator();
         int nbBlocs = 0;
         if (it.hasNext()) {
@@ -39,14 +44,12 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        SeqInt sVide = new SeqInt();
-        System.out.println(sVide);
-        System.out.println("nbBlocs : 0 = " + nombreBlocs(sVide));
-        System.out.println();
-
-        SeqInt s = new SeqInt(5, 5, 1, 1, 1, 2, 2, 4, 8, 2, 2, 1, 2);
-        System.out.println(s);
-        System.out.println("nbBlocs : 4 = " + nombreBlocs(s));
-        System.out.println();
+        SeqInt s1 = new SeqInt();
+        SeqInt s2 = new SeqInt(1, 1, 1, 1, 1);
+        SeqInt s3 = new SeqInt(1, 1, 5, 4, 4, 4, 3, 3, 2, 1, 1, 8, 8);
+        System.out.println("0 = " + nbBlocs(s1));
+        System.out.println("1 = " + nbBlocs(s2));
+        System.out.println("6 = " + nbBlocs(s3));
     }
 }
+
