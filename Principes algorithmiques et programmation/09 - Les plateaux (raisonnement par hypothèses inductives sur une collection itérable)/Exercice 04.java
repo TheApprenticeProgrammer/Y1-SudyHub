@@ -5,26 +5,27 @@ import seqint.SeqIntIterator;
 Écrire une fonction qui calcule le nombre de plateaux qui suivent la dernière occurrence du
 maximum.
 
-e = élément courant
-prec = élément précédent
-max = maximum courant
-res = nombre de plateaux depuis la dernière occurrence du maximum
+prec              1 1 8 5 5 2 2 8 8 8 4 4 1     => prec = e
+e               1 1 8 5 5 2 2 8 8 8 4 4 1 1     => e = it.next()
+max             1 1 8 8 8 8 8 8 8 8 8 8 8 8     => if (e > max) max = e
+res             0 0 0 1 1 2 2 0 0 0 1 1 2 2     => if (e >= max) res = 0 else if (e != prec) ++res
 
-prec              5 2 1 1 1 2 2 5 3 3 7 1 1     => prec = e
--------------------------------------------
-e               5 2 1 1 1 2 2 5 3 3 7 1 1 2     => if (it.hasNext()) e = it.next()
--------------------------------------------
-max             5 5 5 5 5 5 5 5 5 5 7 7 7 7     => if (e > max) max = e
--------------------------------------------
-res             0 1 2 2 2 3 3 0 1 1 0 1 1 2     => if (e >= max) res = 0 else if (prec != e) ++res
+Pré-Initialisation :
+    int res = 0     => retourne zéro si la séquence est vide
 
-Pré-initialisation :
-    int res = 0
- */
+Initialisation :
+    if (it.hasNext())
+        int e = it.next()
+        int nbPlat = 1
+        int max = e
+        while (it.hasNext())
+            int prec = e
+            e = it.next() ...
+*/
 
 public class Main {
 
-    public static int nbPlateauxApresDernierMax(SeqInt s) {
+    public static int nbPlatAfterMax(SeqInt s) {
         SeqIntIterator it = s.iterator();
         int res = 0;
         if (it.hasNext()) {
@@ -33,10 +34,8 @@ public class Main {
             while (it.hasNext()) {
                 int prec = e;
                 e = it.next();
-                if (e > max) {
-                    max = e;
-                }
                 if (e >= max) {
+                    max = e;
                     res = 0;
                 }
                 else if (e != prec) {
@@ -48,44 +47,11 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        SeqInt sVide = new SeqInt();
-        System.out.println(sVide);
-        System.out.println("nbPlateauxApresDernierMax : 0 = " + nbPlateauxApresDernierMax(sVide));
-        System.out.println();
-
-        SeqInt s1 = new SeqInt(5, 2, 1, 1, 1, 2, 2, 5, 3, 3, 7, 1, 1, 2);
-        System.out.println(s1);
-        System.out.println("nbPlateauxApresDernierMax : 2 = " + nbPlateauxApresDernierMax(s1));
-        System.out.println();
-
-        SeqInt s2 = new SeqInt(5, 2, 1, 1, 1, 2, 2, 5, 3, 3, 7, 1, 1, 7);
-        System.out.println(s2);
-        System.out.println("nbPlateauxApresDernierMax : 0 = " + nbPlateauxApresDernierMax(s2));
-        System.out.println();
+        SeqInt s1 = new SeqInt();
+        SeqInt s2 = new SeqInt(1, 1, 8, 5, 5, 2, 2, 8, 8, 8, 4, 4, 1, 1);
+        SeqInt s3 = new SeqInt(1, 1, 2, 2, 3, 3, 4, 4, 5, 5);
+        System.out.println("0 = " + nbPlatAfterMax(s1));
+        System.out.println("2 = " + nbPlatAfterMax(s2));
+        System.out.println("0 = " + nbPlatAfterMax(s3));
     }
 }
-
-/*
-Cette version peut être légèrement améliorée en fusionnent le "if (e > max)" et le "if (e >= max)" :
-
-   public static int nbPlateauxApresDernierMax(SeqInt s) {
-        SeqIntIterator it = s.iterator();
-        int res = 0;
-        if (it.hasNext()) {
-            int e = it.next();
-            int max = e;
-            while (it.hasNext()) {
-                int prec = e;
-                e = it.next();
-                if (e >= max) {
-                    max = e;
-                    res = 0;
-                }
-                else if (e != prec) {
-                    ++res;
-                }
-            }
-        }
-        return res;
-    }
- */
