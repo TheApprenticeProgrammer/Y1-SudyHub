@@ -5,6 +5,11 @@ import seqint.SeqIntIterator;
 Écrire une fonction qui calcule le nombre de plateaux qui suivent la dernière occurrence du
 maximum.
 
+e = élément courant
+prec = élément précédent
+max = maximum courant
+res = nombre de plateaux qui suivent la dernière occurence du maximum.
+
 prec              1 1 8 5 5 2 2 8 8 8 4 4 1     => prec = e
 e               1 1 8 5 5 2 2 8 8 8 4 4 1 1     => e = it.next()
 max             1 1 8 8 8 8 8 8 8 8 8 8 8 8     => if (e > max) max = e
