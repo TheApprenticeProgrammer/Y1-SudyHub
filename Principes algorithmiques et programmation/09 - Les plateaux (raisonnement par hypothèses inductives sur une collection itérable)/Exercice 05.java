@@ -6,17 +6,25 @@ import seqint.SeqIntIterator;
 
 e = élément courant
 prec = élément précédent
-lgPlat = longueur du plateau courant
+lgPlatCour = longueur du plateau courant
 res = nombre de plateaux de longueur supérieure ou égale à 3
 
-prec              5 2 1 1 1 2 2 7 7 7 7 1   =>  prec = e
-e               5 2 1 1 1 2 2 7 7 7 7 1 1   =>  if (it.hasNext()) e = it.next()
-lgPlat          1 1 1 2 3 1 2 1 2 3 4 1 2   => if (e != prec) lgPlat = 1 else ++lgPlat
-res             0 0 0 0 1 1 1 1 1 2 2 2 2   => if (lgPlat == 3) ++res
+prec              1 1 2 2 2 4 1 1 1 5 5 5 5 5 8 8 2 2   =>  prec = e
+e               1 1 2 2 2 4 1 1 1 5 5 5 5 5 8 8 2 2 2   =>  e = it.next()
+lgPlatCour      1 2 1 2 3 1 1 2 3 1 2 3 4 5 1 2 1 2 3   =>  if (e == prec) ++lgPlatCour else lgPlatCour = 1
+res             0 0 0 0 1 1 1 1 2 2 2 3 3 3 3 3 3 3 4   =>  if (lgPlatCour == 3) ++res
 
-Pré-initialisation :
-    int res = 0
- */
+Pré-Initialisation :
+    int res = 0   => retourne zéro si la séquence est vide ou si il n'y a pas de plateaux de longueur supérieure ou égale à 3
+
+Initialisation :
+    if (it.hasNext())
+        int e = it.next()
+        int lgPlatCour = 1
+        while (it.hasNext())
+            int prec = e
+            e = it.next() ...
+*/
 
 public class Main {
 
@@ -25,18 +33,18 @@ public class Main {
         int res = 0;
         if (it.hasNext()) {
             int e = it.next();
-            int lgPlat = 1;
+            int lgPlatCour = 1;
             while (it.hasNext()) {
                 int prec = e;
                 e = it.next();
-                if (e != prec) {
-                    lgPlat = 1;
-                }
-                else {
-                    ++lgPlat;
-                    if (lgPlat == 3) {  // Dans le correctif le if (lgPlat == 3) est en dehors du else. Est-ce une bonne pratique ?
+                if (e == prec) {
+                    ++lgPlatCour;
+                    if (lgPlatCour == 3) {
                         ++res;
                     }
+                }
+                else {
+                    lgPlatCour = 1;
                 }
             }
         }
