@@ -5,6 +5,11 @@ import seqint.SeqIntIterator;
 Écrire une fonction qui calcule le nombre de plateaux de longueur supérieure ou égale à LG
 (donnée et supposée strictement positive).
 
+e = élément courant
+prec = élément précédent
+lgPlatCour = longueur du plateau courant
+LG = paramètre envoyé à la fonction
+
 prec              1 1 2 2 2 4 5 5 8 8 8 4 4 4   =>  prec = e
 e               1 1 2 2 2 4 5 5 8 8 8 4 4 4 4   =>  e = it.next()
 lgPlatCour      1 2 1 2 3 1 1 2 1 2 3 1 2 3 4   =>  if (e == prec) ++lgPlatCour else lgPlatCour = 1
