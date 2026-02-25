@@ -2,7 +2,7 @@
 
 ## Table des matières
 1. Création de l'espace de travail et de la connectique.  
-2. Configuration laptop et server :  
+2. Configuration du laptop et du serveur :  
    2.1 Configuration des adresses IP + subnet mask.  
    2.2 Configuration des passerelles par défaut.  
 3. Configuration du routeur  
