@@ -9,6 +9,9 @@
 4. Ping de test
 
 ---
+## 1. Création de l'espace de travail et de la connectique
+
+j'ai placé sur l'espace de travail un laptop, un routeur et un serveur que j'ai connecté.
 
 ## 2. Configuration du laptop et du server
 
@@ -29,7 +32,7 @@ Laptop0 >> Config >> Settings >> Default Gateway >> 192.168.0.1
 
 ### 3.1 Configuration de l'adresse IP + subnet mask du sous-réseau
 
-Routeur&gt;enable  
+Routeur>enable  
 => Cette commande permet de passer du mode utilisateur au mode d'exécution privilégié (#).
 
 Routeur#conf t  
@@ -46,7 +49,9 @@ Routeur(config-if)#ip address 192.168.0.1 255.255.255.0
 
 ## 5. Ping de test
 
-C:&gt;ping 192.168.1.254  
+Laptop >> Desktop >> Command Prompt
+
+C:\>ping 192.168.1.254  
 Pinging 192.168.1.254 with 32 bytes of data:  
 Request timed out.  
 Request timed out.  
@@ -65,7 +70,7 @@ Il faut donc ouvrir ceux dont on a besoin avec la commande `no shutdown`.
 
 Routeur >> CLI :
 
-Routeur&gt;enable  
+Routeur>enable  
 Routeur#conf t  
 Routeur(config)#interface GigabitEthernet0/0/0  
 Routeur(config-if)#no shutdown  
@@ -81,7 +86,7 @@ Messages typiques :
 
 ## Nouveau ping
 
-C:&gt;ping 192.168.1.254  
+C:\>ping 192.168.1.254  
 Reply from 192.168.1.254: bytes=32 time=1ms TTL=127  
 Reply from 192.168.1.254: bytes=32 time&lt;1ms TTL=127  
 Reply from 192.168.1.254: bytes=32 time&lt;1ms TTL=127  
