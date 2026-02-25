@@ -11,7 +11,7 @@
 ---
 ## 1. Création de l'espace de travail et de la connectique
 
-j'ai placé sur l'espace de travail un laptop, un routeur et un serveur que j'ai connecté.
+J'ai placé sur l'espace de travail un laptop, un routeur et un serveur que j'ai connecté.
 
 ## 2. Configuration du laptop et du server
 
