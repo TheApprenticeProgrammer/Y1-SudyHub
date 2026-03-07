@@ -43,7 +43,7 @@ public class Main {
         }
         while (it.hasNext()) {
             int e = it.next();
-            if (e > res && e < 0) {
+            if (e < 0 && e > res) {
                 res = e;
             }
         }
