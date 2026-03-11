@@ -6,45 +6,48 @@ import seqint.SeqIntIterator;
 
 e = élément courant
 prec = élément précédent
-lgPlatCour = longueur du plateau courant
+lgPlat = longueur du plateau courant
 res = nombre de plateaux de longueur supérieure ou égale à 3
 
-prec              1 1 2 2 2 4 1 1 1 5 5 5 5 5 8 8 2 2   =>  prec = e
-e               1 1 2 2 2 4 1 1 1 5 5 5 5 5 8 8 2 2 2   =>  e = it.next()
-lgPlatCour      1 2 1 2 3 1 1 2 3 1 2 3 4 5 1 2 1 2 3   =>  if (e == prec) ++lgPlatCour else lgPlatCour = 1
-res             0 0 0 0 1 1 1 1 2 2 2 3 3 3 3 3 3 3 4   =>  if (lgPlatCour == 3) ++res
+prec              1 1 2 2 2 2 4 4 4 5 5 3 3 8 8 8   =>  int prec = e;
+e               1 1 2 2 2 2 4 4 4 5 5 3 3 8 8 8 8   =>  int e = it.next();
+lgPlat        0 1 2 1 2 3 4 1 2 3 1 2 1 2 1 2 3 4   =>  if (e != prec) lgPlat = 1; else ++lgPlat;
+res           0 0 0 0 0 1 1 1 1 2 2 2 2 2 2 2 3 3   =>  if (lgPlat == 3) ++res;
 
 Pré-Initialisation :
-    int res = 0   => retourne zéro si la séquence est vide ou si il n'y a pas de plateaux de longueur supérieure ou égale à 3
+    SeqIntIterator it = s.iterator();
+    int res = 0;
+    return res;
 
 Initialisation :
     if (it.hasNext())
-        int e = it.next()
-        int lgPlatCour = 1
+        int e = it.next();
+        int lgPlat = 1;
         while (it.hasNext())
-            int prec = e
-            e = it.next() ...
+            int prec = e;
+            e = it.next();
+                ...
 */
 
 public class Main {
 
     public static int nbPlateauxLongueurPlusGrandEgal3(SeqInt s) {
         SeqIntIterator it = s.iterator();
-        int res = 0;
+        int res = 0; // retourne zéro si la séquence est vide ou s'il n'y a pas de plateau de longueur supérieure ou égale à 3
         if (it.hasNext()) {
             int e = it.next();
-            int lgPlatCour = 1;
+            int lgPlat = 1;
             while (it.hasNext()) {
                 int prec = e;
                 e = it.next();
-                if (e == prec) {
-                    ++lgPlatCour;
-                    if (lgPlatCour == 3) {
-                        ++res;
-                    }
+                if (e != prec) {
+                    lgPlat = 1;
                 }
                 else {
-                    lgPlatCour = 1;
+                    ++lgPlat;
+                    if (lgPlat == 3) {
+                        ++res;
+                    }
                 }
             }
         }
