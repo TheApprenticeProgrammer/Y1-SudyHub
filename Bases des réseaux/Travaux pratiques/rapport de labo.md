@@ -179,6 +179,11 @@ Configuration route par défaut + ip route
 
   Router(config)#ip route 0.0.0.0 0.0.0.0 198.51.100.1
 
+  Router(config)#ip route 192.168.1.0 255.255.255.0 198.51.100.2
+  Router(config)#ip route 192.168.2.0 255.255.255.0 198.51.100.2
+  Router(config)#ip route 192.168.3.0 255.255.255.0 198.51.100.6
+  Router(config)#ip route 192.168.4.0 255.255.255.0 198.51.100.6
+
 
 Configuration du serveur DNS :
   Serveur DNS >> Desktop >> IP Configuration :
@@ -200,6 +205,12 @@ Configuration du serveur Web :
     DNS : 203.0.113.2
   Serveur Web >> Services >> HTTP
     CLique sur => ON
+
+Configuration de Laptop Clients :
+  Laptop Client A1 >> Desktop >> IP Configuration :
+    Cliquez sur => DHCP => DHCP request successful
+      => répeter sur les autres laptops
+    
 
 
       
