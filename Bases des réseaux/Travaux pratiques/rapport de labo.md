@@ -93,6 +93,16 @@ Première étape configuration du réseau Internet :
 --------------------------------------------------------
     vers routeur B :
 ----------------------------------------------------------
+      Router(config)#interface gigabitEthernet 0/2
+      Router(config-if)#int
+      Router(config-if)#ip ad
+      Router(config-if)#ip address 198.51.100.5 255.255.255.252
+      Router(config-if)#no shut
+      Router(config-if)#no shutdown 
+      Router(config-if)#
+      %LINK-5-CHANGED: Interface GigabitEthernet0/2, changed state to up
+      Router(config-if)#exit
+      Router(config)#
 -----------------------------------------------------------
 
 Configuration serveur A :
@@ -103,13 +113,93 @@ Configuration serveur A :
     DNS Server : 203.0.113.2
 Configuration serveur B : 
   Même procédure que le serveur A.
+
+Configuration du routeur A:
+  vers routeur internet :
   
+--------------------------------------------------------------------
+Router>enable 
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#inter
+Router(config)#interface gi
+Router(config)#interface gigabitEthernet 0/0
+Router(config-if)#ip add
+Router(config-if)#ip address 198.51.100.2 255.255.255.252
+Router(config-if)#no shut
+Router(config-if)#no shutdown 
+Router(config-if)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/0, changed state to up
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0, changed state to up
+exit
+Router(config)#
+--------------------------------------------------------------------
+  vers switch serveur A :
+  
+---------------------------------------------
+Router(config)#interface gigabitEthernet 0/2
+Router(config-if)#ip address 192.168.1.1 255.255.255.0
+Router(config-if)#no shutdown 
+Router(config-if)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/2, changed state to up
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/2, changed state to up
+Router(config-if)#exit
+--------------------------------------------
+vers switch client A :
 
-      
+-------------------------------------------------------
+Router(config)#interface gigabitEthernet 0/1
+Router(config-if)#ip add
+Router(config-if)#ip address 192.168.2.1 255.255.255.0
+Router(config-if)#no shu
+Router(config-if)#no shutdown 
+Router(config-if)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/1, changed state to up
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to up
+Router(config-if)#exit
+-------------------------------------------------------
+
+Configuration du routeur DHCP :
+
+--------------------------------------
+Router(config)#ip dhcp pool clientsImperium
+Router(dhcp-config)#ne
+Router(dhcp-config)#network 192.168.2.1 255.255.255.0
+Router(dhcp-config)#dn
+Router(dhcp-config)#dns-server 203.0.113.2
+Router(dhcp-config)#exit
+Router(config)#ip dhcp excluded-address 192.168.2.1
+-------------------------------------  
+
+Configuration du Serveur B :
+  Même chose que serveur A 
 
 
+Configuration route par défaut + ip route
+
+  Router(config)#ip route 0.0.0.0 0.0.0.0 198.51.100.1
 
 
+Configuration du serveur DNS :
+  Serveur DNS >> Desktop >> IP Configuration :
+    IPv4 Address : 203.0.113.2
+    Mask : 255.255.255.0
+    Gateway : 203.0.113.1
+    DNS Server : 203.0.113.2
+  Serveur DNS >> Services >> DNS 
+    DNS Service => ON
+    Name : www.bnet.be
+    Address : 203.0.113.3
+    Cliquer sur => Add
+
+Configuration du serveur Web :
+  Serveur Web >> Desktop >> IP Configuration :
+    IPv4 Address : 203.0.113.3
+    Mask : 255.255.255.0
+    Gateway : 203.0.113.1
+    DNS : 203.0.113.2
+  Serveur Web >> Services >> HTTP
+    CLique sur => ON
 
 
       
