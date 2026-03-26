@@ -17,3 +17,13 @@ BDGE :
 
 PRM :
 ex 01 partie 05 et 07 à refaire.
+
+BNET :
+Terminer de faire phase de test et configuration ordinateur 26/03/2026
+Refaire le TP + orthographe rapport => 27/03/2026
+
+To Do :
+Terminer de faire phase de test et configuration ordinateur 26/03/2026
+Terminer exercices classes, objets et attributs 26/03/2026
+Terminer + push Git exercices sur les views
+Refaire le chant des calottins, wallons et le godeamus
