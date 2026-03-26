@@ -16,3 +16,4 @@ BDGE :
     Synthèse 05 => not OK
 
 PRM :
+ex 01 partie 05 et 07 à refaire.
