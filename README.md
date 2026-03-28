@@ -17,6 +17,7 @@ BDGE :
 
 PRM :
 ex 01 partie 05 et 07 à refaire.
+Tableau ex 08 question à poser.
 
 BNET :
 Terminer de faire phase de test et configuration ordinateur 26/03/2026
