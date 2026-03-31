@@ -19,6 +19,7 @@ PRM :
 ex 01 partie 05 et 07 à refaire.
 Tableau ex 08 question à poser.
 Je n'ai pas compris la version du corrigé de l'ex 13 des tableaux.
+Demander à monsieur si ma verison de l'exercice 15 sur les séquences est correct.
 
 BNET :
 Terminer de faire phase de test et configuration ordinateur 26/03/2026
