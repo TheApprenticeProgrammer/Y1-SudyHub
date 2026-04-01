@@ -17,6 +17,7 @@ public class Main {
         return onlyMin;
     }
 
+    // Autre version :
     public static boolean onlyMin(String s) {
         boolean min = true;
         for (int i = 0; i < s.length() && min; ++i) {
