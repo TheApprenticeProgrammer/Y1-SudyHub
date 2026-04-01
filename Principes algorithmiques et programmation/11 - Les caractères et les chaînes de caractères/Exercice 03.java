@@ -17,6 +17,16 @@ public class Main {
         return onlyMin;
     }
 
+    public static boolean onlyMin(String s) {
+        boolean min = true;
+        for (int i = 0; i < s.length() && min; ++i) {
+            if (!estMin(s.charAt(i))) {
+                min = false;
+            }
+        }
+        return min;
+    }
+
     public static void main(String[] args) {
         String s1 = "hello";
         String s2 = "Hello";
