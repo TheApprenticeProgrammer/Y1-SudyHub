@@ -5,38 +5,80 @@ exemple : "Esope reste ici et se repose". Pour permettre à l’utilisateur d’
 utilisez un Scanner avec la méthode nextLine().
 */
 
+import java.util.Scanner;
+
 public class Main {
 
+    public static char toMin(char c) {
+        return (char) ((int) c + ((int) 'a' - (int) 'A'));
+    }
+
+    public static boolean estMin(char c) {
+        return (c >= 'a' && 'z' >= c);
+    }
+
+    public static boolean estLettre(char c) {
+        return ((c >= 'a' && 'z' >= c) || (c >= 'A' && 'Z' >= c));
+    }
+
     public static boolean estPalindrome(String s) {
-        boolean estPal = true;
-        int otherSide = s.length() - 1;
-        int space = ' ';
-        int diffMajMin = (int) 'a' - (int) 'A';
-        for (int i = 0; i < s.length() / 2 && estPal; ++i) {
-            char min = s.charAt(i);
-            while (min == space) {
-                ++i;
-                min = s.charAt(i);
+        boolean palindrome = true;
+        int g = 0, d = s.length() - 1;
+        while (g < d && palindrome) {
+            char lg = s.charAt(g);
+            char ld = s.charAt(d);
+            while (!estLettre(lg)) {
+                ++g;
+                lg = s.charAt(g);
             }
-            char max = s.charAt(otherSide);
-            while (max == space) {
-                --otherSide;
-                max = s.charAt(otherSide);
+            while (!estLettre(ld)) {
+                --d;
+                ld = s.charAt(d);
             }
-            if ((int) min != (int) max) {
-                if (((int) min + diffMajMin != (int) max) && ((int) max + diffMajMin != (int) min)) {
-                    estPal = false;
-                }
+            if (!estMin(lg)) {
+                lg = toMin(lg);
             }
-            --otherSide;
+            if (!estMin(ld)) {
+                ld = toMin(ld);
+            }
+            if ((int) lg != (int) ld) {
+                palindrome = false;
+            }
+            ++g;
+            --d;
         }
-        return estPal;
+        return palindrome;
     }
 
     public static void main(String[] args) {
-        String s1 = "E so pe Re s te   IcI e t S e   repOse";
-        String s2 = "Esope reste ici ou se repose";
+        Scanner scan = new Scanner(System.in);
+
+        String s1 = new String("Esope reste ici et se repose");
         System.out.println("true = " + estPalindrome(s1));
-        System.out.println("false = " + estPalindrome(s2));
+
+        String s2 = new String("Elu par cette crapule");
+        System.out.println("true = " + estPalindrome(s2));
+
+        String s3 = new String("A man a plan a canal Panama");
+        System.out.println("true = " + estPalindrome(s3));
+
+        String s4 = new String("Laval");
+        System.out.println("true = " + estPalindrome(s4));
+
+        String s5 = new String("A a");
+        System.out.println("true = " + estPalindrome(s5));
+
+        String s6 = new String("hello");
+        System.out.println("false = " + estPalindrome(s6));
+
+        String s7 = new String("Bonjour");
+        System.out.println("false = " + estPalindrome(s7));
+
+        String s8 = new String("Java est cool");
+        System.out.println("false = " + estPalindrome(s8));
+
+        System.out.print("Entrez une phrase : ");
+        String s = scan.nextLine();
+        System.out.println(estPalindrome(s));
     }
 }
