@@ -7,15 +7,15 @@ strictement supérieure à 1.
 
 e = élément courant
 prec = élément précédent
+max = valeur du plateau de hauteur maximale
 lgPlatCour = longueur du plateau courant
-max = valeur du plateau de hauteur max de la séquence
 res = nombre de plateaux de hauteur maximale et de longueur strictement supérieure à 1
 
-prec              1 1 5 5 4 4 4 5 8 8 4 8 5 8 8     => int prec = e;
-e               1 1 5 5 4 4 4 5 8 8 4 8 5 8 8 8     => int e = it.next();
-lgPlatCour      1 2 1 2 1 2 3 1 1 2 1 1 1 1 2 3     => if (e != prec) lgPlatCour = 1; else ++lgPlatCour;
-max             1 1 5 5 5 5 5 5 8 8 8 8 8 8 8 8     => if (e > max) max = e; res = 0;
-res           0 0 1 0 1 1 1 1 1 0 1 1 1 1 1 2 2     => if (e == max && lgPlatCour == 2) ++res;
+prec              4 2 2 3 4 4 2 5 5 5 2 5 5 2 2 1   =>  int prec = e;
+e               4 2 2 3 4 4 2 5 5 5 2 5 5 2 2 1 5   =>  int e = it.next();
+lgPlatCour      1 1 2 1 1 2 1 1 2 3 1 1 2 1 2 1 1   =>  if (e != prec) lgPlatCour = 1; else ++lgPlatCour;
+max             4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5   =>  if (e > max) max = e; res = 0;
+res           0 0 0 0 0 0 1 1 0 1 1 1 1 2 2 2 2 2   =>  if (e == max && lgPlatCour == 2) ++res;
 
 Pré-Initialisation :
     SeqIntIterator it = s.iterator();
