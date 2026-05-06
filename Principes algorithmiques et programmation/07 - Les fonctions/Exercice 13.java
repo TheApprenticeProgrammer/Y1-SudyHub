@@ -10,7 +10,7 @@ public class Main {
     public static void square(int val) {
         for (int largeur = 0; largeur < val; ++largeur) {
             for (int longueur = 0; longueur < val; ++longueur) {
-                System.out.print("X");
+                System.out.print("X ");
             }
             System.out.println();
         }
