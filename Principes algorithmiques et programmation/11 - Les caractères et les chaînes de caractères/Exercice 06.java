@@ -13,6 +13,14 @@ public class Main {
         return res;
     }
 
+    public static String reverseByBegin(String s) {
+        String res = "";
+        for (int i = 0; i < s.length(); ++i) {
+            res = s.charAt(i) + res;
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
         String s1 = "Hello";
         System.out.println(reverse(s1));
