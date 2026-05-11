@@ -8,6 +8,7 @@ public class Main {
     public static char toMaj(char c) {
         if (c >= 'a' && c <= 'z') {
             c = (char) ((int) c - ((int) 'a' - (int) 'A'));
+            // c = (char) (((int) c + (int) 'A') - (int) 'a'); 
         }
         return c;
     }
