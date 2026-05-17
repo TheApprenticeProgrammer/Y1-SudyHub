@@ -5,6 +5,14 @@ import seqint.SeqIntIterator;
 /*
 Écrire une fonction qui calcule la position et la longueur du dernier plateau de hauteur maximale.
 
+e = élément courant
+prec = élément précédent
+lgPlatCour = longueur du plateau courant
+posCour = position de l'élément courant
+max = valeur du plateau de hauteur maximale
+resPos = position du dernier plateau de hauteur maximale
+resLg = longueur du dernier plateau de hauteur maximale
+
 prec              1 1 2 5 5 4 4 5 5 5 8 5 8 => int prec = e;
 e               1 1 2 5 5 4 4 5 5 5 8 5 8 8 => int e = it.next();
 lgPlatCour      1 2 1 1 2 1 2 1 2 3 1 1 1 2 => if (e != prec) lgPlatCour = 1; else ++lgPlatCour;
