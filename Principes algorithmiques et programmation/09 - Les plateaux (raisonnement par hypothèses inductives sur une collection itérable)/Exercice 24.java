@@ -4,6 +4,11 @@ import seqint.SeqIntIterator;
 /*
 Écrire une fonction qui calcule la longueur du dernier plateau de hauteur H (donnée).
 
+e = élément courant
+prec = élément précédent
+lgPlatCour = longueur du plateau de l'élément courant
+res = longueur du dernier plateau de hauteur h
+
 prec              1 1 2 8 5 5 8 8 8 4 8 5 7 7 3 => int prec = e;
 e               1 1 2 8 5 5 8 8 8 4 8 5 7 7 3 3 => int e = it.next();
 lgPlatCour      1 2 1 1 1 2 1 2 3 1 1 1 1 2 1 2 => if (e != prec) lgPlatCour = 1; else ++lgPlatCour;
