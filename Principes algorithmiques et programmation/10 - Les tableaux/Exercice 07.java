@@ -47,7 +47,7 @@ public class Main {
         }
     }
 
-    public static void rev(Array<Integer> tab) {
+    public static void switchV2(Array<Integer> tab) {
         int g = 0, d = tab.size() - 1;
         while (g < d) {
             tab.set(g, tab.set(d, tab.get(g)));
