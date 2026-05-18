@@ -29,6 +29,17 @@ public class Main {
         return res;
     }
 
+public static int posLastApparition(Array<Integer> tab, int val) {
+        int res = tab.size();
+        int cpt = 0;
+        while (cpt < tab.size()) {
+            if (val == tab.get(cpt))
+                res = cpt;
+            ++cpt;
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Array<Integer> tab = new Array<>(4, 7, 5, 2, 4, 3, 2, 3);
